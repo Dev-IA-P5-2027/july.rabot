@@ -1,0 +1,12 @@
+requests
+beautifulsoup4
+sentence-transformers
+transformers
+torch
+sentencepiece
+sacremoses
+gradio
+sacrebleu
+rouge-score
+ollama
+pandas

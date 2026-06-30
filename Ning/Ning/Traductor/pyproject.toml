@@ -1,0 +1,25 @@
+[project]
+name = "rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "gradio>=6.19.0",
+    "ollama>=0.6.2",
+    "pandas>=3.0.3",
+    "requests>=2.34.2",
+    "rouge-score>=0.1.2",
+    "sacrebleu>=2.6.0",
+    "sacremoses>=0.1.1",
+    "sentence-transformers>=5.6.0",
+    "sentencepiece>=0.2.1",
+    "torch>=2.12.1",
+    "transformers>=5.12.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+]

@@ -1,0 +1,6 @@
+setfit
+datasets
+scikit-learn
+pandas
+matplotlib
+torch
