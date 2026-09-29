@@ -1,0 +1,19 @@
+# Part 3 : Filebeat lit le CSV de personnes et l'envoie a Logstash.
+#
+# L'article utilise l'input `log` avec `close_eof: true` et `filebeat --once`.
+# En 9.x l'input `log` est supprime (erreur "Log input is deprecated") et il faut
+# passer a `filestream`. Or `--once` est en course avec filestream : Filebeat
+# annonce "All data collection completed" avant meme que le harvester ait publie,
+# et un run sur deux n'envoie rien. On lance donc Filebeat en continu et c'est
+# loadtest.sh qui l'arrete une fois le fichier ingere.
+filebeat.inputs:
+  - type: filestream
+    id: person-dataset
+    paths:
+      - /usr/share/filebeat/bano/data/person_dataset.csv
+    close.reader.on_eof: true
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+logging.level: warning

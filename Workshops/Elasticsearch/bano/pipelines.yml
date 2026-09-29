@@ -1,0 +1,5 @@
+# Les deux pipelines d'enrichissement tournent en parallele dans le meme Logstash.
+- pipeline.id: enrich-http
+  path.config: "/usr/share/logstash/bano/enrich.conf"
+- pipeline.id: enrich-csv
+  path.config: "/usr/share/logstash/bano/enrich-csv.conf"

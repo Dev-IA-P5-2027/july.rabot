@@ -1,0 +1,36 @@
+{
+  "index_patterns": ["person-enriched"],
+  "priority": 100,
+  "template": {
+    "settings": {
+      "index.number_of_shards": 1,
+      "index.number_of_replicas": 0
+    },
+    "mappings": {
+      "properties": {
+        "id": { "type": "keyword" },
+        "name": { "type": "text", "fields": { "keyword": { "type": "keyword" } } },
+        "dateOfBirth": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss.SSSSSS" },
+        "gender": { "type": "keyword" },
+        "children": { "type": "integer" },
+        "location": { "type": "geo_point" },
+        "address": {
+          "properties": {
+            "number": { "type": "keyword" },
+            "street_name": { "type": "text" },
+            "zipcode": { "type": "keyword" },
+            "city": { "type": "text", "fields": { "keyword": { "type": "keyword" } } },
+            "country": { "type": "keyword" },
+            "countrycode": { "type": "keyword" }
+          }
+        },
+        "input_address": {
+          "properties": {
+            "zipcode": { "type": "keyword" },
+            "city": { "type": "text", "fields": { "keyword": { "type": "keyword" } } }
+          }
+        }
+      }
+    }
+  }
+}
